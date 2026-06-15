@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stella • @okittydream</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #4c1d95, #831843, #1e1b4b);
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow: hidden;
+    }
+    .butterfly {
+      position: absolute;
+      font-size: 2.5rem;
+      animation: float 15s infinite linear;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white relative flex items-center justify-center">
+  
+  <!-- Kelebekler -->
+  <div class="butterfly" style="left: 10%; animation-delay: 0s;">🦋</div>
+  <div class="butterfly" style="left: 25%; animation-delay: 3s;">🌸</div>
+  <div class="butterfly" style="left: 40%; animation-delay: 7s;">🦋</div>
+  <div class="butterfly" style="left: 60%; animation-delay: 2s;">🌺</div>
+  <div class="butterfly" style="left: 75%; animation-delay: 5s;">🦋</div>
+  <div class="butterfly" style="left: 85%; animation-delay: 8s;">🌸</div>
+
+  <div class="max-w-md mx-auto text-center z-10 px-6 py-12">
+    <!-- Profil -->
+    <div class="mb-8">
+      <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-purple-400 via-pink-400 to-purple-600 p-1">
+        <div class="w-full h-full rounded-full bg-zinc-900 flex items-center justify-center text-6xl">
+          ✨
+        </div>
+      </div>
+      <h1 class="text-5xl font-bold mt-6">Stella</h1>
+      <p class="text-pink-300 text-xl">@okittydream</p>
+    </div>
+
+    <!-- Müzik Butonu -->
+    <div class="mb-10">
+      <button onclick="toggleMusic()" 
+              id="musicBtn"
+              class="flex items-center gap-3 mx-auto bg-black/50 hover:bg-black/70 border border-pink-500 px-6 py-3 rounded-3xl transition">
+        <i class="fas fa-play text-pink-400"></i>
+        <span class="font-medium">FASSounds - Lofi Study</span>
+      </button>
+    </div>
+
+    <!-- Sosyal Butonlar -->
+    <div class="space-y-4 mb-12">
+      <a href="https://discord.com/users/okittydream" target="_blank"
+         class="block w-full bg-[#5865F2] hover:bg-[#4752C4] py-4 rounded-2xl font-semibold flex items-center justify-center gap-3 transition">
+        <i class="fab fa-discord text-2xl"></i>
+        Discord - okittydream
+      </a>
+      
+      <a href="https://instagram.com/okittydream" target="_blank"
+         class="block w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 py-4 rounded-2xl font-semibold flex items-center justify-center gap-3 transition">
+        <i class="fab fa-instagram text-2xl"></i>
+        Instagram - @okittydream
+      </a>
+      
+      <a href="https://open.spotify.com/user/h2zhqr1shl4qra8ztj9xae1oa?si=N7qFk4bOQNW47-iDJXuJUA" target="_blank"
+         class="block w-full bg-[#1DB954] hover:bg-[#1ed760] py-4 rounded-2xl font-semibold flex items-center justify-center gap-3 transition text-black">
+        <i class="fab fa-spotify text-2xl"></i>
+        Spotify
+      </a>
+    </div>
+
+    <!-- Söz -->
+    <div class="bg-black/30 backdrop-blur-md border border-purple-500/30 p-8 rounded-3xl italic text-lg leading-relaxed">
+      "Bazen diyorum ne olucak Söle bitsin<br>
+      bazende diyorumki söleyince nolcak sus bitsin..."
+    </div>
+
+    <p class="mt-12 text-purple-300 text-sm">made with ♡</p>
+  </div>
+
+  <!-- Audio -->
+  <audio id="lofiAudio" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    let isPlaying = false;
+    const audio = document.getElementById('lofiAudio');
+    const btn = document.getElementById('musicBtn');
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        btn.innerHTML = `<i class="fas fa-play text-pink-400"></i><span class="font-medium">FASSounds - Lofi Study</span>`;
+      } else {
+        audio.play().catch(() => {
+          alert("Müzik oynatılırken hata oldu. Tarayıcı izin vermedi.");
+        });
+        btn.innerHTML = `<i class="fas fa-pause text-pink-400"></i><span class="font-medium">FASSounds - Lofi Study</span>`;
+      }
+      isPlaying = !isPlaying;
+    }
+
+    // Daha güzel lofi için YouTube linki de verebilirsin istersen
+  </script>
+</body>
+</html>
